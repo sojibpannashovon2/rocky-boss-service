@@ -1,0 +1,7 @@
+#background {
+    background-image: url('../../../../assets/home/featured.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8rem;
+    background-color: black;
+}
