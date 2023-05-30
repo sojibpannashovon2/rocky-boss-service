@@ -21,7 +21,7 @@ const Testimonial = () => {
 
     }, [])
 
-    console.log(review);
+    // console.log(review);
     return (
         <div className='my-20'>
             <SectionTitle
