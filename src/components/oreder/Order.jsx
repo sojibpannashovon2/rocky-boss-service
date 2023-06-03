@@ -13,7 +13,7 @@ const Order = () => {
     const { category } = useParams();
     const initialIndex = catagories.indexOf(category)
     const [tabIndex, setTabIndex] = useState(initialIndex);
-    console.log(category);
+    // console.log(category);
 
     const [menus] = useMenu();
     const dessert = menus?.filter(pd => pd?.category === "dessert")
