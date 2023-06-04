@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../provider/AuthProvider';
 import { FaShoppingCart } from 'react-icons/fa';
+import useCart from '../../../hooks/useCart';
 const Navbar = () => {
     const { user, logout } = useContext(authContext)
+    const [cart] = useCart()
 
     const handleLogOut = () => {
         logout()
@@ -25,20 +27,13 @@ const Navbar = () => {
         <li>
             <Link to="/order/dessert">Order-Menu</Link>
         </li>
-        {user ? <li onClick={handleLogOut} className='btn btn-outline btn-white bg-red-600 btn-md'>LogOut</li> :
+        {user ? <li onClick={handleLogOut} className='btn btn-outline btn-white bg-red-600 btn-md border-2 border-white text-white'>LogOut</li> :
             <li>
                 <Link to="/login">Login</Link>
             </li>
         }
         <li>{user?.displayName}</li>
-        <li className='ml-3'>
-            <Link to='/' className="btn  border-2 border-white">
-                <FaShoppingCart></FaShoppingCart>
 
-                <span className="badge badge-sm badge-secondary">+0</span>
-
-            </Link>
-        </li>
     </>
     return (
 
@@ -59,8 +54,13 @@ const Navbar = () => {
                     {navOption}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Get started</a>
+            <div className='ml-3'>
+                <Link to='/dashboard/mycart' className="btn  border-2 border-white">
+                    <FaShoppingCart></FaShoppingCart>
+
+                    <span className="badge badge-sm badge-secondary ml-2">+${cart?.length || 0} </span>
+
+                </Link>
             </div>
         </div>
 

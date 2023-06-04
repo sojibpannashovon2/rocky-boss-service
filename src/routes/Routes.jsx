@@ -11,6 +11,8 @@ import Order from '../components/oreder/Order';
 import LogIn from '../components/pages/Logs/LogIn';
 import Register from '../components/pages/Logs/Register';
 import PrivateRoutes from './PrivateRoutes';
+import DashBoard from '../Layout/DashBoard';
+import MyCart from '../components/Dashboard/MyCart';
 
 export const router = createBrowserRouter([
     {
@@ -39,4 +41,14 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "dashboard",
+        element: <DashBoard></DashBoard>,
+        children: [
+            {
+                path: 'mycart',
+                element: <MyCart></MyCart>
+            }
+        ]
+    }
 ]);
