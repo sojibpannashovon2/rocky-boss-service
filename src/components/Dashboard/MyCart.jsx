@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 const MyCart = () => {
 
     const [cart, refetch] = useCart();
-    const total = cart.reduce((sum, item) => item.price + sum, 0)
+    const total = cart?.reduce((sum, item) => item.price + sum, 0)
     const newTotal = total.toFixed(2)
 
     const handleDelete = (row) => {
@@ -79,7 +79,7 @@ const MyCart = () => {
                         </thead>
                         <tbody >
                             {
-                                cart.map((row, index) => <tr
+                                cart?.map((row, index) => <tr
 
                                     key={row?._id}
                                 >
